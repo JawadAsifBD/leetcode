@@ -14,7 +14,7 @@ class Solution:
         root = TreeNode(preorder[0])
         for i in range(1, len(preorder)):
             setNode(root, preorder[i])
-        return
+        return root
 
 
 def setNode(node: TreeNode, val: int):
