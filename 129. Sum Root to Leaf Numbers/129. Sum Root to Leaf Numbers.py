@@ -10,17 +10,20 @@ class TreeNode:
 
 
 class Solution:
-    res = 0
-
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
-        def sumToLeaf(node: Optional[TreeNode], sum: int) -> int:
-            if node is None:
-                return sum
-            leftsum = 0
-            rightsum = 0
-            if node.left is not None:
-                leftsum = sumToLeaf(node.left, sum*10)
-            if node.right is not None:
-                rightsum = sumToLeaf(node.right, sum*10)
-            sum = leftsum + rightsum
-            return sum
+        def sumToLeaf(node: Optional[TreeNode], total: int) -> int:
+            total = total*10 + node.val
+            if node.left is None and node.right is None:
+                return total
+            else:
+                lefttotal = rightotal = 0
+                if node.left is not None:
+                    lefttotal = sumToLeaf(node.left, total)
+                if node.right is not None:
+                    rightotal = sumToLeaf(node.right, total)
+                return lefttotal + rightotal
+
+        if root is None:
+            return 0
+        else:
+            return sumToLeaf(root, 0)
