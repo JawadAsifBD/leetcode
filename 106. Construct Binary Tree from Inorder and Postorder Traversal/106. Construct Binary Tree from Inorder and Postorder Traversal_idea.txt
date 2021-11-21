@@ -1,0 +1,18 @@
+By definition, the postorder input has the root of the tree as its last element.
+Also, by definition, inorder and postorder have equal lengths.
+
+Therefore, to split these inputs into left and right subtrees, we can find the last element of postorder within inorder and split inorder at that point, recursing to the left with the elements left of that point and to the right with the elements to the right of that point.
+
+Since the inputs must be of equal length, we must split postorder at the same position, but include the element at that position in the input for the right subtree (and, of course, exclude the element in the last position).
+
+e.g. inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
+Then the root is 3, so inorder and postorder are split thusly:
+inorder_left = [9]
+inorder_right = [15,20,7]
+postorder_left = [9]
+postorder_right = [15,7,20]
+Then set the left subtree to buildTree(inorder_left, postorder_left) and set the right subtree to buildTree(inorder_right, postorder_right).
+
+So, here is the resulting algorithm:
+Step 1: If inorder is not empty, then find the last element of postorder in inorder.
+Step 2: If inorder is not empty, then divide the inputs into left and right subtrees and recurse.
