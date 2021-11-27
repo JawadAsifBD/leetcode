@@ -1,0 +1,16 @@
+We need to multiply all numbers except the current one, e. g:
+resulti = a1 * a2 ... * ai-1 * ai+1 * ... * an
+We could divide that into two parts:
+resulti = li * ri
+li = a1 * a2 ... * ai-1
+ri = ai+1 * ... * an
+l0 = rn+1 = 1
+
+We could initialize our result with ones and then do two traversal - forward and backward.
+While traversing we could accumulate product of visited items and multiply result at current index by accumulated value from previous step, initializing this value with 1. Thus while traversing forward we would have:
+
+result[i] *= accumulated_product
+accumulated_product *= nums[i]
+Before traversing setting accumulated_product to 1.
+Thus going both directions each result item would get multiplied by all previous values from the forward traversal and by all following values from backward traversal, thus would end up having all values except the value at current index multiplied.
+
