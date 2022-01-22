@@ -1,9 +1,9 @@
-from functools import cache
+from functools import lru_cache
 from math import floor, sqrt
 
 
 class Solution:
-    @cache
+    @lru_cache(None)
     def winnerSquareGame(self, n: int) -> bool:
         if not n:
             return False
@@ -13,3 +13,8 @@ class Solution:
                 return True
 
         return False
+
+
+s = Solution()
+n = 400
+print(s.winnerSquareGame(n))
