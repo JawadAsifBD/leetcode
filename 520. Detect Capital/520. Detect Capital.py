@@ -4,7 +4,3 @@ class Solution:
             return True
         return False
 
-
-s = Solution()
-word = 'leetcode'
-print(s.detectCapitalUse(word))
