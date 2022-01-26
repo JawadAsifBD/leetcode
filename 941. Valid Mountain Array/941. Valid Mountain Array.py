@@ -23,7 +23,7 @@ class Solution:
             # detect upward slope
             elif arr[i] > arr[i-1]:
                 is_increasing = True
-        # a mountain array must have a peak and downard slope,
+        # a mountain array must have a peak and downward slope,
         # but in this case, array is strictly increasing or strictly decreasing
         if not is_decreasing or not is_increasing:
             return False
