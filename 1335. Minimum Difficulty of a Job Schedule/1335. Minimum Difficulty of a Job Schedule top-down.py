@@ -16,7 +16,8 @@ class Solution:
                 if day == 1:
                     memo[i][day] = max([jobDifficulty[j] for j in range(i, n)])
                 else:
-                    min_for_day = 300001  # maximum possible difficulty of a day 300*1000
+                    # maximum possible difficulty of a day 300*1000
+                    min_for_day = 300001
                     for j in range(1, n-i):
                         min_for_day = min(min_for_day, max(
                             jobDifficulty[i:i+j])+dp(i+j, day-1))
