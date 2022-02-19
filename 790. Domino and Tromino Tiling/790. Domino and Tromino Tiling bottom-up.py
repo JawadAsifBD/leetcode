@@ -1,0 +1,18 @@
+from functools import lru_cache
+
+
+class Solution:
+    def numTilings(self, n: int) -> int:
+        modulo = 10**9+7
+        dp = [0]*(n+1)
+        dp[1] = 1
+        dp[2] = 2
+        dp[3] = 5
+        for i in range(4, n+1):
+            dp[i] = (2 * dp[i-1]+dp[i-3]) % modulo
+        return dp[n]
+
+
+s = Solution()
+n = 30
+print(s.numTilings(n))
